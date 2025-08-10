@@ -38,7 +38,11 @@ jobs:
         run: npm test
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/mi-app:latest .
+        run: |
+          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:latest \
+                       -t ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:${{ github.sha }} .
 
       - name: Push Docker image
-        run: docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/mi-app:latest
+        run: |
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:latest
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:${{ github.sha }}
