@@ -39,10 +39,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:latest \
-                       -t ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:${{ github.sha }} .
+          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/curso-cicd:latest \
+                       -t ghcr.io/${{ secrets.GHCR_USERNAME }}/curso-cicd:${{ github.sha }} .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:latest
-          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/cursoCICD:${{ github.sha }}
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/curso-cicd:latest
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/curso-cicd:${{ github.sha }}
